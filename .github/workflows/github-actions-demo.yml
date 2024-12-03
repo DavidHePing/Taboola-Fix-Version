@@ -1,0 +1,24 @@
+name: GitHub Actions CD
+run-name: CD Flow 🚀
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  build-api:
+    name: Build image and push
+    runs-on: wsl-ubuntu
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - run: chmod +x ./api/build.sh
+      - run: ./api/build.sh ${{ github.run_id }}
+  deploy-api:
+    name: Pull image and deploy
+    runs-on: wsl-ubuntu
+    needs: build-api
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - run: chmod +x ./api/run.sh
+      - run: ./api/run.sh ${{ github.run_id }}
