@@ -3,10 +3,10 @@
 #### System Design: https://github.com/DavidHePing/Taboola-Test/blob/master/SystemDesign.md
 
 ## Structure
-### - api: the endpoint for getting response
-### - db: the db
-### - spark: the streaming which write data constantly
-### - redis: redis cluster, for cache
+#### - api: the endpoint for getting response
+#### - db: the db
+#### - spark: the streaming which write data constantly
+#### - redis: redis cluster, for cache
 
 ## How to install
 #### helm repo add bitnami https://charts.bitnami.com/bitnami
